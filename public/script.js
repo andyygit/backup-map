@@ -39,11 +39,19 @@ const addBackup = () => {
 };
 
 const deleteBacup = (item) => {
+  let headers = new Headers();
+  let passCheck = prompt('Introduceti parola pentru stergere:');
+  headers.append('my-passtocheck', passCheck);
   fetch(`http://${window.location.host}/backup/delete/${item}`, {
     method: 'DELETE',
+    headers: headers,
   })
     .then((res) => res.json())
-    // .then((data) => console.log(data))
+    .then((data) => {
+      if (data.status == 401) {
+        alert('Nu s-a indicat parola corecta!');
+      }
+    })
     .then(document.location.replace('/'))
     .catch((err) => console.log(err));
 };

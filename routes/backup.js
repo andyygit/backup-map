@@ -83,6 +83,9 @@ router
 
 router.route('/delete/:id').delete((req, res, next) => {
   console.log(`get reguested from ${req.url}`);
+  if (req.get('my-passtocheck') != 'parolamea') {
+    return next({ status: 401, message: 'Nu ai furnizat parola corecta' });
+  }
 
   let id = parseInt(req.params.id, 10);
   let db = new sqlite3.Database('backupPc.db', sqlite3.OPEN_READWRITE, (err) => {
