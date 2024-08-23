@@ -1,0 +1,12 @@
+doctype html
+html
+	head 
+		title=	'Sectii backup' 
+		link(rel='stylesheet', href='/style.css')
+	body 
+		.row 
+			button(class='bold' onclick="goBackup()")= 'Adauga backup nou'
+			div
+				each item in message 
+					button(class='bold' onclick=`goSectia("${item.sectia}")`)= `${item.sectia}`
+		script(src='/script.js')

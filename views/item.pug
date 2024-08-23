@@ -1,0 +1,16 @@
+doctype html
+html
+	head 
+		title=	title 
+		link(rel='stylesheet', href='/style.css')
+	body 
+		.main
+			.label.bold
+				span= title
+			.item(data-rowid=message.rowid)
+				each val, key in message 
+					if key!='rowid'
+						div(class=key)= val
+				button(class='bold' onclick=`deleteBacup(${message.rowid})`)= 'Sterge din DB'
+		button(class='bold' onclick="history.back()")= 'Inapoi'
+		script(src='/script.js')

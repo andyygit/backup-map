@@ -1,0 +1,76 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+body {
+  margin: 2em;
+  background-color: #f4f2ee;
+}
+button {
+  border: 1px solid #0a66c2;
+  border-radius: 0.3rem;
+  margin-right: 0.4rem;
+  cursor: pointer;
+}
+/* helper classes */
+.bold {
+  font-weight: 800;
+}
+/* end helper classes */
+.main {
+  margin: 2em 0;
+  gap: 10px;
+}
+.row,
+.row div {
+  display: flex;
+}
+.row {
+  justify-content: space-between;
+}
+.main,
+.item {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1.2em;
+  border: none;
+  border-radius: 0.8rem;
+  box-shadow: 0px 0px 0px 1px rgb(140 140 140 / 0.2);
+}
+.item {
+  width: 240px;
+  flex-direction: column;
+  cursor: pointer;
+  background-color: #fff;
+}
+.item input,
+.item select {
+  padding: 5px;
+  margin: 2px 0;
+}
+.item button {
+  margin-top: 1em;
+  background-color: #e06847;
+  color: #fff;
+}
+.item:hover.highlight {
+  box-shadow: 0px 0px 0px 1px #0a66c2;
+}
+.main .label {
+  position: absolute;
+  top: -11px;
+  left: 15px;
+  background-color: #fff;
+  border: none;
+  border-radius: 0.8rem;
+  box-shadow: 0px 0px 0px 1px rgb(140 140 140 / 0.2);
+  padding: 0 15px;
+}
+.main .postDeLucru {
+  color: #fff;
+  background-color: #6c757d;
+  padding: 0.2em;
+}
+.main .nrInv {
+  background-color: #e9ecef;
+}

@@ -1,0 +1,18 @@
+doctype html
+html
+	head 
+		title=	title 
+		link(rel='stylesheet', href='/style.css')
+	body 
+		.row 
+			button(class='bold' onclick="goBackup()")= 'Adauga backup nou'
+		.main
+			.label.bold
+				span= title
+			each item in message 
+				.item.highlight(data-rowid=item.rowid onclick="goToItem(this)")
+					each val, key in item 
+						if key!='rowid'
+							div(class=key)= val 
+		button(class='bold' onclick="history.back()")= 'Inapoi'
+		script(src='/script.js')

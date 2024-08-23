@@ -1,0 +1,24 @@
+doctype html
+html
+	head 
+		title=	title 
+		link(rel='stylesheet', href='/style.css')
+	body 
+		.main
+			.label.bold
+				span= title
+			.item 
+				input(type="text", name="postDeLucru" placeholder="postDeLucru")
+				input(type="text", name="denumirePc" placeholder="denumirePc")
+				input(type="text", name="serialNo" placeholder="serialNo")
+				input(type="text", name="nrInv" placeholder="nrInv")
+				input(type="text", name="so" placeholder="so")
+				input(type="text", name="status" placeholder="status")
+				input(type="text", name="software" placeholder="software")
+				select(name="sectia" autofocus)
+					option(value="none" selected disabled)= "Alege sectia"
+					option(value="ELM")= "ELM"
+					option(value="FILS")= "FILS"
+		button(class='bold' onclick="addBackup()")= 'Adauga backup'
+		button(class='bold' onclick="history.back()")= 'Renunta'
+		script(src='/script.js')
