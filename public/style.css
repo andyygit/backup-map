@@ -6,9 +6,10 @@ body {
   background-color: #f4f2ee;
 }
 button {
+  padding: 0.2em 1em;
+  margin-right: 0.4rem;
   border: 1px solid #0a66c2;
   border-radius: 0.3rem;
-  margin-right: 0.4rem;
   cursor: pointer;
 }
 /* helper classes */
@@ -37,11 +38,16 @@ button {
   border-radius: 0.8rem;
   box-shadow: 0px 0px 0px 1px rgb(140 140 140 / 0.2);
 }
-.item {
-  width: 240px;
+.main {
   flex-direction: column;
+}
+.item {
+  /* width: 240px;
+  flex-direction: column; */
+  gap: 1em;
+  align-items: center;
   cursor: pointer;
-  background-color: #fff;
+  /* background-color: #fff; */
 }
 .item input,
 .item select {
@@ -49,12 +55,15 @@ button {
   margin: 2px 0;
 }
 .item button {
-  margin-top: 1em;
+  /* margin-top: 1em; */
   background-color: #e06847;
   color: #fff;
 }
 .item:hover.highlight {
   box-shadow: 0px 0px 0px 1px #0a66c2;
+}
+.item.activeform {
+  display: grid;
 }
 .main .label {
   position: absolute;
@@ -66,11 +75,19 @@ button {
   box-shadow: 0px 0px 0px 1px rgb(140 140 140 / 0.2);
   padding: 0 15px;
 }
+.main .postDeLucru,
+.main .nrInv {
+  padding: 0.2em 1em;
+  border-radius: 0.4rem;
+}
 .main .postDeLucru {
   color: #fff;
   background-color: #6c757d;
-  padding: 0.2em;
 }
 .main .nrInv {
-  background-color: #e9ecef;
+  /* background-color: #e9ecef; */
+  background-color: #fff;
+}
+.main .software {
+  text-decoration: underline;
 }

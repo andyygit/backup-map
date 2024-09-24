@@ -11,6 +11,7 @@ html
 				each val, key in message 
 					if key!='rowid'
 						div(class=key)= val
-				button(class='bold' onclick=`deleteBacup(${message.rowid})`)= 'Sterge din DB'
+				if message.rowid
+					button(class='bold' onclick=`deleteBacup(${message.rowid})`)= 'Sterge din DB'
 		button(class='bold' onclick="history.back()")= 'Inapoi'
 		script(src='/script.js')

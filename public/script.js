@@ -2,6 +2,10 @@ const goToItem = (item) => {
   document.location.href = `/backup/details/${item.dataset.rowid}`;
 };
 
+const searchItem = (item) => {
+  document.location.href = `/backup/search/${item}`;
+};
+
 const addBackup = () => {
   let dataToSend = {};
 
@@ -63,3 +67,12 @@ const goBackup = () => {
 const goSectia = (sectia) => {
   document.location.href = `/sectia/${sectia}`;
 };
+
+document.addEventListener('keyup', (e) => {
+  if (e.target.name === 'cautabackup') {
+    e.target.value = e.target.value.replace(/(?!\d+).+/g, ''); //negate all but digits
+    if (e.code === 'Enter' || e.code === 'NumpadEnter') {
+      searchItem(e.target.value);
+    }
+  }
+});

@@ -6,6 +6,7 @@ html
 	body 
 		.row 
 			button(class='bold' onclick="goBackup()")= 'Adauga backup nou'
+			input(type="text", name="cautabackup")
 			div
 				each item in message 
 					button(class='bold' onclick=`goSectia("${item.sectia}")`)= `${item.sectia}`

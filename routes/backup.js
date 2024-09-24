@@ -108,4 +108,37 @@ router.route('/delete/:id').delete((req, res, next) => {
   });
 });
 
+router.route('/search/:nrinv').get((req, res, next) => {
+  console.log(`get reguested from ${req.url}`);
+
+  let nrinv = parseInt(req.params.nrinv, 10);
+  let db = new sqlite3.Database('backupPc.db', sqlite3.OPEN_READWRITE, (err) => {
+    if (err) {
+      return next({ status: 500, message: 'nu s-a putut conecta la db' });
+    }
+    console.log('Connected to database');
+    db.serialize(() => {
+      db.get(
+        'SELECT rowid, postDeLucru, denumirePc, serialNo, nrInv, so, status, software, sectia, datetime(dataCurenta, "unixepoch") as dataCurenta FROM backup WHERE nrInv = $nrinv',
+        { $nrinv: nrinv },
+        (err, row) => {
+          if (err) {
+            return next({ status: 500, message: 'ceva nu a mers bine' });
+          }
+          res.render('item', {
+            title: `Nr. Inventar ${nrinv} din tabela backup`,
+            message: row == undefined ? { message: 'nu exista acest Nr. Inventar in db' } : row,
+          });
+        }
+      );
+    });
+    db.close((err) => {
+      if (err) {
+        console.error(err.message);
+      }
+      console.log('Close the database connection.');
+    });
+  });
+});
+
 export { router };
