@@ -28,6 +28,9 @@ button {
 .row {
   justify-content: space-between;
 }
+.row input {
+  padding: 5px;
+}
 .main,
 .item {
   position: relative;
